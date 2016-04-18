@@ -8,18 +8,13 @@
 import scrapy
 
 
-class AmericanforkchamberItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
-
-
 class DirectoryItem(scrapy.Item):
     title = scrapy.Field()
     author = scrapy.Field()
+    author_job = scrapy.Field()
     address = scrapy.Field()
     link = scrapy.Field()
     phone = scrapy.Field()
     email = scrapy.Field()
-    info_link = scrapy.Field()
+    address_book_link = scrapy.Field()
 
