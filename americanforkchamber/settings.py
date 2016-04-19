@@ -8,6 +8,7 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
+import os
 
 BOT_NAME = 'americanforkchamber'
 
@@ -18,6 +19,7 @@ DB_HOST = 'localhost'
 DB_PORT = 27017
 DB_NAME = 'amerikanforkchamber'
 
+DOWNLOAD_FILE_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), "output")
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'americanforkchamber (+http://www.yourdomain.com)'
@@ -65,9 +67,10 @@ DB_NAME = 'amerikanforkchamber'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'americanforkchamber.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'americanforkchamber.pipelines.MongoPipeLine': 300,
+   # 'americanforkchamber.pipelines.CsvPipeLine': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
